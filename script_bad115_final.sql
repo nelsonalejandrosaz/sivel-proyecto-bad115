@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     17/06/2019 21:18:33                          */
+/* Created on:     18/06/2019 1:26:27                           */
 /*==============================================================*/
 
 
@@ -30,13 +30,6 @@ if exists (select 1
    where r.fkeyid = object_id('IMPORTACIONES') and o.name = 'FK_IMPORTAC_TIENE_UNA_UBICACIO')
 alter table IMPORTACIONES
    drop constraint FK_IMPORTAC_TIENE_UNA_UBICACIO
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('MOVIMIENTOS') and o.name = 'FK_MOVIMIEN_AUTORIZO_USUARIOS')
-alter table MOVIMIENTOS
-   drop constraint FK_MOVIMIEN_AUTORIZO_USUARIOS
 go
 
 if exists (select 1
@@ -76,9 +69,9 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('USUARIOS') and o.name = 'FK_USUARIOS_TIENE_ROL_ROLES')
+   where r.fkeyid = object_id('USUARIOS') and o.name = 'FK_USUARIOS_POSEE_ROLES')
 alter table USUARIOS
-   drop constraint FK_USUARIOS_TIENE_ROL_ROLES
+   drop constraint FK_USUARIOS_POSEE_ROLES
 go
 
 if exists (select 1
@@ -152,15 +145,6 @@ if exists (select 1
             and   indid > 0
             and   indid < 255)
    drop index MOVIMIENTOS.REMOLCADO_EN_FK
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('MOVIMIENTOS')
-            and   name  = 'AUTORIZO_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index MOVIMIENTOS.AUTORIZO_FK
 go
 
 if exists (select 1
@@ -269,7 +253,7 @@ go
 /*==============================================================*/
 create table BODEGAS (
    ID_BODEGA            int                  identity,
-   NOMBRE_USER          varchar(50)          not null,
+   NOMBRE               varchar(50)          not null,
    CAPACIDAD_MAX        int                  not null,
    constraint PK_BODEGAS primary key nonclustered (ID_BODEGA)
 )
@@ -279,9 +263,9 @@ go
 /* Table: ESTADO_IMPORTACIONES                                  */
 /*==============================================================*/
 create table ESTADO_IMPORTACIONES (
-   _ESTADO_IMPORTACION  int                  identity,
+   ID_EIMPORTACION      int                  identity,
    ESTADO_IMPORTACION   varchar(50)          not null,
-   constraint PK_ESTADO_IMPORTACIONES primary key nonclustered (_ESTADO_IMPORTACION)
+   constraint PK_ESTADO_IMPORTACIONES primary key nonclustered (ID_EIMPORTACION)
 )
 go
 
@@ -289,15 +273,15 @@ go
 /* Table: IMPORTACIONES                                         */
 /*==============================================================*/
 create table IMPORTACIONES (
-   ATTRIBUTE_15         int                  identity,
+   ID_IMPORTACION       int                  identity,
    ID_UBICACION         int                  not null,
-   _ESTADO_IMPORTACION  int                  not null,
+   ID_EIMPORTACION      int                  not null,
    ID_IMPORTADOR        int                  not null,
    ID_VEHICULO          int                  not null,
    FECHA                datetime             not null,
    DESPERFECTO          varchar(280)         not null,
    PRECIO_VENTA         decimal(14,4)        null,
-   constraint PK_IMPORTACIONES primary key nonclustered (ATTRIBUTE_15)
+   constraint PK_IMPORTACIONES primary key nonclustered (ID_IMPORTACION)
 )
 go
 
@@ -329,7 +313,7 @@ go
 /* Index: ESTADO_FK                                             */
 /*==============================================================*/
 create index ESTADO_FK on IMPORTACIONES (
-_ESTADO_IMPORTACION ASC
+ID_EIMPORTACION ASC
 )
 go
 
@@ -357,12 +341,11 @@ go
 /*==============================================================*/
 create table MOVIMIENTOS (
    ID_MOVIMIENTO        int                  identity,
-   ID_USUARIOS          int                  not null,
    ID_TALLER            int                  null,
-   ATTRIBUTE_15         int                  not null,
-   ID_TIPO              int                  not null,
-   ID_TIPO_REMOLQUE     int                  null,
-   FECHA_MOVIMIENTO     datetime             not null,
+   ID_IMPORTACION       int                  not null,
+   ID_TMOVIMIENTO       int                  not null,
+   ID_TREMOLQUE         int                  null,
+   FECHA                datetime             not null,
    constraint PK_MOVIMIENTOS primary key nonclustered (ID_MOVIMIENTO)
 )
 go
@@ -379,7 +362,7 @@ go
 /* Index: ES_DE_FK                                              */
 /*==============================================================*/
 create index ES_DE_FK on MOVIMIENTOS (
-ID_TIPO ASC
+ID_TMOVIMIENTO ASC
 )
 go
 
@@ -387,15 +370,7 @@ go
 /* Index: TIENE_FK                                              */
 /*==============================================================*/
 create index TIENE_FK on MOVIMIENTOS (
-ATTRIBUTE_15 ASC
-)
-go
-
-/*==============================================================*/
-/* Index: AUTORIZO_FK                                           */
-/*==============================================================*/
-create index AUTORIZO_FK on MOVIMIENTOS (
-ID_USUARIOS ASC
+ID_IMPORTACION ASC
 )
 go
 
@@ -403,7 +378,7 @@ go
 /* Index: REMOLCADO_EN_FK                                       */
 /*==============================================================*/
 create index REMOLCADO_EN_FK on MOVIMIENTOS (
-ID_TIPO_REMOLQUE ASC
+ID_TREMOLQUE ASC
 )
 go
 
@@ -411,9 +386,9 @@ go
 /* Table: ROLES                                                 */
 /*==============================================================*/
 create table ROLES (
-   ID_ROLES             int                  identity,
+   ID_ROL               int                  identity,
    ROL                  varchar(50)          not null,
-   constraint PK_ROLES primary key nonclustered (ID_ROLES)
+   constraint PK_ROLES primary key nonclustered (ID_ROL)
 )
 go
 
@@ -422,7 +397,7 @@ go
 /*==============================================================*/
 create table TALLERES (
    ID_TALLER            int                  identity,
-   NOMBRE_TALLER        varchar(100)         not null,
+   NOMBRE               varchar(100)         not null,
    constraint PK_TALLERES primary key nonclustered (ID_TALLER)
 )
 go
@@ -431,9 +406,9 @@ go
 /* Table: TIPO_MOVIMIENTOS                                      */
 /*==============================================================*/
 create table TIPO_MOVIMIENTOS (
-   ID_TIPO              int                  identity,
+   ID_TMOVIMIENTO       int                  identity,
    TIPO_MOVIMIENTO      varchar(30)          not null,
-   constraint PK_TIPO_MOVIMIENTOS primary key nonclustered (ID_TIPO)
+   constraint PK_TIPO_MOVIMIENTOS primary key nonclustered (ID_TMOVIMIENTO)
 )
 go
 
@@ -441,10 +416,10 @@ go
 /* Table: TIPO_REMOLQUES                                        */
 /*==============================================================*/
 create table TIPO_REMOLQUES (
-   ID_TIPO_REMOLQUE     int                  identity,
+   ID_TREMOLQUE         int                  identity,
    TIPO_REMOLQUE        varchar(50)          not null,
    CAPACIDAD_REMOLQUE   int                  not null,
-   constraint PK_TIPO_REMOLQUES primary key nonclustered (ID_TIPO_REMOLQUE)
+   constraint PK_TIPO_REMOLQUES primary key nonclustered (ID_TREMOLQUE)
 )
 go
 
@@ -472,12 +447,12 @@ go
 /* Table: USUARIOS                                              */
 /*==============================================================*/
 create table USUARIOS (
-   ID_USUARIOS          int                  identity,
+   ID_USUARIO           int                  identity,
    ID_ROLES             int                  not null,
    EMAIL                varchar(100)         not null,
    PASSWORD             varchar(280)         not null,
    NOMBRE_USER          varchar(50)          not null,
-   constraint PK_USUARIOS primary key nonclustered (ID_USUARIOS)
+   constraint PK_USUARIOS primary key nonclustered (ID_USUARIO)
 )
 go
 
@@ -502,8 +477,8 @@ create table VEHICULOS (
 go
 
 alter table IMPORTACIONES
-   add constraint FK_IMPORTAC_ESTADO_ESTADO_I foreign key (_ESTADO_IMPORTACION)
-      references ESTADO_IMPORTACIONES (_ESTADO_IMPORTACION)
+   add constraint FK_IMPORTAC_ESTADO_ESTADO_I foreign key (ID_EIMPORTACION)
+      references ESTADO_IMPORTACIONES (ID_EIMPORTACION)
 go
 
 alter table IMPORTACIONES
@@ -522,18 +497,13 @@ alter table IMPORTACIONES
 go
 
 alter table MOVIMIENTOS
-   add constraint FK_MOVIMIEN_AUTORIZO_USUARIOS foreign key (ID_USUARIOS)
-      references USUARIOS (ID_USUARIOS)
+   add constraint FK_MOVIMIEN_ES_DE_TIPO_MOV foreign key (ID_TMOVIMIENTO)
+      references TIPO_MOVIMIENTOS (ID_TMOVIMIENTO)
 go
 
 alter table MOVIMIENTOS
-   add constraint FK_MOVIMIEN_ES_DE_TIPO_MOV foreign key (ID_TIPO)
-      references TIPO_MOVIMIENTOS (ID_TIPO)
-go
-
-alter table MOVIMIENTOS
-   add constraint FK_MOVIMIEN_REMOLCADO_TIPO_REM foreign key (ID_TIPO_REMOLQUE)
-      references TIPO_REMOLQUES (ID_TIPO_REMOLQUE)
+   add constraint FK_MOVIMIEN_REMOLCADO_TIPO_REM foreign key (ID_TREMOLQUE)
+      references TIPO_REMOLQUES (ID_TREMOLQUE)
 go
 
 alter table MOVIMIENTOS
@@ -542,8 +512,8 @@ alter table MOVIMIENTOS
 go
 
 alter table MOVIMIENTOS
-   add constraint FK_MOVIMIEN_TIENE_IMPORTAC foreign key (ATTRIBUTE_15)
-      references IMPORTACIONES (ATTRIBUTE_15)
+   add constraint FK_MOVIMIEN_TIENE_IMPORTAC foreign key (ID_IMPORTACION)
+      references IMPORTACIONES (ID_IMPORTACION)
 go
 
 alter table UBICACIONES
@@ -552,9 +522,11 @@ alter table UBICACIONES
 go
 
 alter table USUARIOS
-   add constraint FK_USUARIOS_TIENE_ROL_ROLES foreign key (ID_ROLES)
-      references ROLES (ID_ROLES)
+   add constraint FK_USUARIOS_POSEE_ROLES foreign key (ID_ROLES)
+      references ROLES (ID_ROL)
 go
+
+
 
 /****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 17/06/2019 10:25:21 p.m. ******/
 SET ANSI_NULLS ON
@@ -746,6 +718,4 @@ REFERENCES [dbo].[AspNetUsers] ([Id])
 ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId]
-GO
-USE [master]
 GO
