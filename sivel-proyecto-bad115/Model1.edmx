@@ -1,0 +1,1095 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bad115Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BODEGAS">
+          <Key>
+            <PropertyRef Name="ID_BODEGA" />
+          </Key>
+          <Property Name="ID_BODEGA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CAPACIDAD_MAX" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTADO_IMPORTACIONES">
+          <Key>
+            <PropertyRef Name="ID_EIMPORTACION" />
+          </Key>
+          <Property Name="ID_EIMPORTACION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ESTADO_IMPORTACION" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IMPORTACIONES">
+          <Key>
+            <PropertyRef Name="ID_IMPORTACION" />
+          </Key>
+          <Property Name="ID_IMPORTACION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_UBICACION" Type="int" Nullable="false" />
+          <Property Name="ID_EIMPORTACION" Type="int" Nullable="false" />
+          <Property Name="ID_IMPORTADOR" Type="int" Nullable="false" />
+          <Property Name="ID_VEHICULO" Type="int" Nullable="false" />
+          <Property Name="FECHA" Type="datetime" Nullable="false" />
+          <Property Name="DESPERFECTO" Type="varchar" MaxLength="280" Nullable="false" />
+          <Property Name="PRECIO_VENTA" Type="decimal" Precision="14" Scale="4" />
+        </EntityType>
+        <EntityType Name="IMPORTADORES">
+          <Key>
+            <PropertyRef Name="ID_IMPORTADOR" />
+          </Key>
+          <Property Name="ID_IMPORTADOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NIT" Type="int" Nullable="false" />
+          <Property Name="NOMBRES" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="APELLIDOS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="APELLIDO_CASADA" Type="varchar" MaxLength="50" />
+          <Property Name="GENERO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="datetime" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="280" Nullable="false" />
+          <Property Name="PERSONA_RESPONSABLE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TELEFONO_RESPONSABLE" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MOVIMIENTOS">
+          <Key>
+            <PropertyRef Name="ID_MOVIMIENTO" />
+          </Key>
+          <Property Name="ID_MOVIMIENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TALLER" Type="int" />
+          <Property Name="ID_IMPORTACION" Type="int" Nullable="false" />
+          <Property Name="ID_TMOVIMIENTO" Type="int" Nullable="false" />
+          <Property Name="ID_TREMOLQUE" Type="int" />
+          <Property Name="FECHA" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROL" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TALLERES">
+          <Key>
+            <PropertyRef Name="ID_TALLER" />
+          </Key>
+          <Property Name="ID_TALLER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_MOVIMIENTOS">
+          <Key>
+            <PropertyRef Name="ID_TMOVIMIENTO" />
+          </Key>
+          <Property Name="ID_TMOVIMIENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO_MOVIMIENTO" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_REMOLQUES">
+          <Key>
+            <PropertyRef Name="ID_TREMOLQUE" />
+          </Key>
+          <Property Name="ID_TREMOLQUE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO_REMOLQUE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CAPACIDAD_REMOLQUE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UBICACIONES">
+          <Key>
+            <PropertyRef Name="ID_UBICACION" />
+          </Key>
+          <Property Name="ID_UBICACION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_BODEGA" Type="int" Nullable="false" />
+          <Property Name="NIVEL" Type="int" />
+          <Property Name="NUMERO_PARQUEO" Type="int" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ROLES" Type="int" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="280" Nullable="false" />
+          <Property Name="NOMBRE_USER" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VEHICULOS">
+          <Key>
+            <PropertyRef Name="ID_VEHICULO" />
+          </Key>
+          <Property Name="ID_VEHICULO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MARCA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MODELO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ANO" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAC_ESTADO_ESTADO_I">
+          <End Role="ESTADO_IMPORTACIONES" Type="Self.ESTADO_IMPORTACIONES" Multiplicity="1" />
+          <End Role="IMPORTACIONES" Type="Self.IMPORTACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_IMPORTACIONES">
+              <PropertyRef Name="ID_EIMPORTACION" />
+            </Principal>
+            <Dependent Role="IMPORTACIONES">
+              <PropertyRef Name="ID_EIMPORTACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAC_PERTENECE_VEHICULO">
+          <End Role="VEHICULOS" Type="Self.VEHICULOS" Multiplicity="1" />
+          <End Role="IMPORTACIONES" Type="Self.IMPORTACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULOS">
+              <PropertyRef Name="ID_VEHICULO" />
+            </Principal>
+            <Dependent Role="IMPORTACIONES">
+              <PropertyRef Name="ID_VEHICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAC_REALIZA_IMPORTAD">
+          <End Role="IMPORTADORES" Type="Self.IMPORTADORES" Multiplicity="1" />
+          <End Role="IMPORTACIONES" Type="Self.IMPORTACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMPORTADORES">
+              <PropertyRef Name="ID_IMPORTADOR" />
+            </Principal>
+            <Dependent Role="IMPORTACIONES">
+              <PropertyRef Name="ID_IMPORTADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAC_TIENE_UNA_UBICACIO">
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="1" />
+          <End Role="IMPORTACIONES" Type="Self.IMPORTACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UBICACIONES">
+              <PropertyRef Name="ID_UBICACION" />
+            </Principal>
+            <Dependent Role="IMPORTACIONES">
+              <PropertyRef Name="ID_UBICACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIMIEN_ES_DE_TIPO_MOV">
+          <End Role="TIPO_MOVIMIENTOS" Type="Self.TIPO_MOVIMIENTOS" Multiplicity="1" />
+          <End Role="MOVIMIENTOS" Type="Self.MOVIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_MOVIMIENTOS">
+              <PropertyRef Name="ID_TMOVIMIENTO" />
+            </Principal>
+            <Dependent Role="MOVIMIENTOS">
+              <PropertyRef Name="ID_TMOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIMIEN_REMOLCADO_TIPO_REM">
+          <End Role="TIPO_REMOLQUES" Type="Self.TIPO_REMOLQUES" Multiplicity="0..1" />
+          <End Role="MOVIMIENTOS" Type="Self.MOVIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_REMOLQUES">
+              <PropertyRef Name="ID_TREMOLQUE" />
+            </Principal>
+            <Dependent Role="MOVIMIENTOS">
+              <PropertyRef Name="ID_TREMOLQUE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIMIEN_REPARADO__TALLERES">
+          <End Role="TALLERES" Type="Self.TALLERES" Multiplicity="0..1" />
+          <End Role="MOVIMIENTOS" Type="Self.MOVIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TALLERES">
+              <PropertyRef Name="ID_TALLER" />
+            </Principal>
+            <Dependent Role="MOVIMIENTOS">
+              <PropertyRef Name="ID_TALLER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIMIEN_TIENE_IMPORTAC">
+          <End Role="IMPORTACIONES" Type="Self.IMPORTACIONES" Multiplicity="1" />
+          <End Role="MOVIMIENTOS" Type="Self.MOVIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMPORTACIONES">
+              <PropertyRef Name="ID_IMPORTACION" />
+            </Principal>
+            <Dependent Role="MOVIMIENTOS">
+              <PropertyRef Name="ID_IMPORTACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UBICACIO_PERTENECE_BODEGAS">
+          <End Role="BODEGAS" Type="Self.BODEGAS" Multiplicity="1" />
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BODEGAS">
+              <PropertyRef Name="ID_BODEGA" />
+            </Principal>
+            <Dependent Role="UBICACIONES">
+              <PropertyRef Name="ID_BODEGA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOS_POSEE_ROLES">
+          <End Role="ROLES" Type="Self.ROLES" Multiplicity="1" />
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="ID_ROLES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="InsertarImportador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_importador" Type="int" Mode="In" />
+          <Parameter Name="nit" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellido" Type="varchar" Mode="In" />
+          <Parameter Name="apellido_casada" Type="varchar" Mode="In" />
+          <Parameter Name="genero" Type="char" Mode="In" />
+          <Parameter Name="fechadeNacimiento" Type="datetime" Mode="In" />
+          <Parameter Name="direccion" Type="varchar" Mode="In" />
+          <Parameter Name="persona_responsable" Type="varchar" Mode="In" />
+          <Parameter Name="telefono_responsable" Type="char" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="bad115ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BODEGAS" EntityType="Self.BODEGAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTADO_IMPORTACIONES" EntityType="Self.ESTADO_IMPORTACIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IMPORTACIONES" EntityType="Self.IMPORTACIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IMPORTADORES" EntityType="Self.IMPORTADORES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MOVIMIENTOS" EntityType="Self.MOVIMIENTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TALLERES" EntityType="Self.TALLERES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_MOVIMIENTOS" EntityType="Self.TIPO_MOVIMIENTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_REMOLQUES" EntityType="Self.TIPO_REMOLQUES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UBICACIONES" EntityType="Self.UBICACIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VEHICULOS" EntityType="Self.VEHICULOS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAC_ESTADO_ESTADO_I" Association="Self.FK_IMPORTAC_ESTADO_ESTADO_I">
+            <End Role="ESTADO_IMPORTACIONES" EntitySet="ESTADO_IMPORTACIONES" />
+            <End Role="IMPORTACIONES" EntitySet="IMPORTACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAC_PERTENECE_VEHICULO" Association="Self.FK_IMPORTAC_PERTENECE_VEHICULO">
+            <End Role="VEHICULOS" EntitySet="VEHICULOS" />
+            <End Role="IMPORTACIONES" EntitySet="IMPORTACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAC_REALIZA_IMPORTAD" Association="Self.FK_IMPORTAC_REALIZA_IMPORTAD">
+            <End Role="IMPORTADORES" EntitySet="IMPORTADORES" />
+            <End Role="IMPORTACIONES" EntitySet="IMPORTACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAC_TIENE_UNA_UBICACIO" Association="Self.FK_IMPORTAC_TIENE_UNA_UBICACIO">
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+            <End Role="IMPORTACIONES" EntitySet="IMPORTACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIMIEN_ES_DE_TIPO_MOV" Association="Self.FK_MOVIMIEN_ES_DE_TIPO_MOV">
+            <End Role="TIPO_MOVIMIENTOS" EntitySet="TIPO_MOVIMIENTOS" />
+            <End Role="MOVIMIENTOS" EntitySet="MOVIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIMIEN_REMOLCADO_TIPO_REM" Association="Self.FK_MOVIMIEN_REMOLCADO_TIPO_REM">
+            <End Role="TIPO_REMOLQUES" EntitySet="TIPO_REMOLQUES" />
+            <End Role="MOVIMIENTOS" EntitySet="MOVIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIMIEN_REPARADO__TALLERES" Association="Self.FK_MOVIMIEN_REPARADO__TALLERES">
+            <End Role="TALLERES" EntitySet="TALLERES" />
+            <End Role="MOVIMIENTOS" EntitySet="MOVIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIMIEN_TIENE_IMPORTAC" Association="Self.FK_MOVIMIEN_TIENE_IMPORTAC">
+            <End Role="IMPORTACIONES" EntitySet="IMPORTACIONES" />
+            <End Role="MOVIMIENTOS" EntitySet="MOVIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UBICACIO_PERTENECE_BODEGAS" Association="Self.FK_UBICACIO_PERTENECE_BODEGAS">
+            <End Role="BODEGAS" EntitySet="BODEGAS" />
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_POSEE_ROLES" Association="Self.FK_USUARIOS_POSEE_ROLES">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bad115Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="BODEGAS">
+          <Key>
+            <PropertyRef Name="ID_BODEGA" />
+          </Key>
+          <Property Name="ID_BODEGA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CAPACIDAD_MAX" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UBICACIONES" Relationship="Self.FK_UBICACIO_PERTENECE_BODEGAS" FromRole="BODEGAS" ToRole="UBICACIONES" />
+        </EntityType>
+        <EntityType Name="ESTADO_IMPORTACIONES">
+          <Key>
+            <PropertyRef Name="ID_EIMPORTACION" />
+          </Key>
+          <Property Name="ID_EIMPORTACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ESTADO_IMPORTACION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="IMPORTACIONES" Relationship="Self.FK_IMPORTAC_ESTADO_ESTADO_I" FromRole="ESTADO_IMPORTACIONES" ToRole="IMPORTACIONES" />
+        </EntityType>
+        <EntityType Name="IMPORTACIONES">
+          <Key>
+            <PropertyRef Name="ID_IMPORTACION" />
+          </Key>
+          <Property Name="ID_IMPORTACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_UBICACION" Type="Int32" Nullable="false" />
+          <Property Name="ID_EIMPORTACION" Type="Int32" Nullable="false" />
+          <Property Name="ID_IMPORTADOR" Type="Int32" Nullable="false" />
+          <Property Name="ID_VEHICULO" Type="Int32" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DESPERFECTO" Type="String" MaxLength="280" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRECIO_VENTA" Type="Decimal" Precision="14" Scale="4" />
+          <NavigationProperty Name="ESTADO_IMPORTACIONES" Relationship="Self.FK_IMPORTAC_ESTADO_ESTADO_I" FromRole="IMPORTACIONES" ToRole="ESTADO_IMPORTACIONES" />
+          <NavigationProperty Name="VEHICULOS" Relationship="Self.FK_IMPORTAC_PERTENECE_VEHICULO" FromRole="IMPORTACIONES" ToRole="VEHICULOS" />
+          <NavigationProperty Name="IMPORTADORES" Relationship="Self.FK_IMPORTAC_REALIZA_IMPORTAD" FromRole="IMPORTACIONES" ToRole="IMPORTADORES" />
+          <NavigationProperty Name="UBICACIONES" Relationship="Self.FK_IMPORTAC_TIENE_UNA_UBICACIO" FromRole="IMPORTACIONES" ToRole="UBICACIONES" />
+          <NavigationProperty Name="MOVIMIENTOS" Relationship="Self.FK_MOVIMIEN_TIENE_IMPORTAC" FromRole="IMPORTACIONES" ToRole="MOVIMIENTOS" />
+        </EntityType>
+        <EntityType Name="IMPORTADORES">
+          <Key>
+            <PropertyRef Name="ID_IMPORTADOR" />
+          </Key>
+          <Property Name="ID_IMPORTADOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NIT" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDOS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO_CASADA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GENERO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DIRECCION" Type="String" MaxLength="280" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PERSONA_RESPONSABLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELEFONO_RESPONSABLE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="IMPORTACIONES" Relationship="Self.FK_IMPORTAC_REALIZA_IMPORTAD" FromRole="IMPORTADORES" ToRole="IMPORTACIONES" />
+        </EntityType>
+        <EntityType Name="MOVIMIENTOS">
+          <Key>
+            <PropertyRef Name="ID_MOVIMIENTO" />
+          </Key>
+          <Property Name="ID_MOVIMIENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TALLER" Type="Int32" />
+          <Property Name="ID_IMPORTACION" Type="Int32" Nullable="false" />
+          <Property Name="ID_TMOVIMIENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TREMOLQUE" Type="Int32" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="IMPORTACIONES" Relationship="Self.FK_MOVIMIEN_TIENE_IMPORTAC" FromRole="MOVIMIENTOS" ToRole="IMPORTACIONES" />
+          <NavigationProperty Name="TIPO_MOVIMIENTOS" Relationship="Self.FK_MOVIMIEN_ES_DE_TIPO_MOV" FromRole="MOVIMIENTOS" ToRole="TIPO_MOVIMIENTOS" />
+          <NavigationProperty Name="TIPO_REMOLQUES" Relationship="Self.FK_MOVIMIEN_REMOLCADO_TIPO_REM" FromRole="MOVIMIENTOS" ToRole="TIPO_REMOLQUES" />
+          <NavigationProperty Name="TALLERES" Relationship="Self.FK_MOVIMIEN_REPARADO__TALLERES" FromRole="MOVIMIENTOS" ToRole="TALLERES" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.FK_USUARIOS_POSEE_ROLES" FromRole="ROLES" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="TALLERES">
+          <Key>
+            <PropertyRef Name="ID_TALLER" />
+          </Key>
+          <Property Name="ID_TALLER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MOVIMIENTOS" Relationship="Self.FK_MOVIMIEN_REPARADO__TALLERES" FromRole="TALLERES" ToRole="MOVIMIENTOS" />
+        </EntityType>
+        <EntityType Name="TIPO_MOVIMIENTOS">
+          <Key>
+            <PropertyRef Name="ID_TMOVIMIENTO" />
+          </Key>
+          <Property Name="ID_TMOVIMIENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO_MOVIMIENTO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MOVIMIENTOS" Relationship="Self.FK_MOVIMIEN_ES_DE_TIPO_MOV" FromRole="TIPO_MOVIMIENTOS" ToRole="MOVIMIENTOS" />
+        </EntityType>
+        <EntityType Name="TIPO_REMOLQUES">
+          <Key>
+            <PropertyRef Name="ID_TREMOLQUE" />
+          </Key>
+          <Property Name="ID_TREMOLQUE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO_REMOLQUE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CAPACIDAD_REMOLQUE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MOVIMIENTOS" Relationship="Self.FK_MOVIMIEN_REMOLCADO_TIPO_REM" FromRole="TIPO_REMOLQUES" ToRole="MOVIMIENTOS" />
+        </EntityType>
+        <EntityType Name="UBICACIONES">
+          <Key>
+            <PropertyRef Name="ID_UBICACION" />
+          </Key>
+          <Property Name="ID_UBICACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_BODEGA" Type="Int32" Nullable="false" />
+          <Property Name="NIVEL" Type="Int32" />
+          <Property Name="NUMERO_PARQUEO" Type="Int32" />
+          <NavigationProperty Name="BODEGAS" Relationship="Self.FK_UBICACIO_PERTENECE_BODEGAS" FromRole="UBICACIONES" ToRole="BODEGAS" />
+          <NavigationProperty Name="IMPORTACIONES" Relationship="Self.FK_IMPORTAC_TIENE_UNA_UBICACIO" FromRole="UBICACIONES" ToRole="IMPORTACIONES" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ROLES" Type="Int32" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="280" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE_USER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ROLES" Relationship="Self.FK_USUARIOS_POSEE_ROLES" FromRole="USUARIOS" ToRole="ROLES" />
+        </EntityType>
+        <EntityType Name="VEHICULOS">
+          <Key>
+            <PropertyRef Name="ID_VEHICULO" />
+          </Key>
+          <Property Name="ID_VEHICULO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MARCA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODELO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ANO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="IMPORTACIONES" Relationship="Self.FK_IMPORTAC_PERTENECE_VEHICULO" FromRole="VEHICULOS" ToRole="IMPORTACIONES" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UBICACIO_PERTENECE_BODEGAS">
+          <End Role="BODEGAS" Type="Self.BODEGAS" Multiplicity="1" />
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BODEGAS">
+              <PropertyRef Name="ID_BODEGA" />
+            </Principal>
+            <Dependent Role="UBICACIONES">
+              <PropertyRef Name="ID_BODEGA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAC_ESTADO_ESTADO_I">
+          <End Role="ESTADO_IMPORTACIONES" Type="Self.ESTADO_IMPORTACIONES" Multiplicity="1" />
+          <End Role="IMPORTACIONES" Type="Self.IMPORTACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_IMPORTACIONES">
+              <PropertyRef Name="ID_EIMPORTACION" />
+            </Principal>
+            <Dependent Role="IMPORTACIONES">
+              <PropertyRef Name="ID_EIMPORTACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAC_PERTENECE_VEHICULO">
+          <End Role="VEHICULOS" Type="Self.VEHICULOS" Multiplicity="1" />
+          <End Role="IMPORTACIONES" Type="Self.IMPORTACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULOS">
+              <PropertyRef Name="ID_VEHICULO" />
+            </Principal>
+            <Dependent Role="IMPORTACIONES">
+              <PropertyRef Name="ID_VEHICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAC_REALIZA_IMPORTAD">
+          <End Role="IMPORTADORES" Type="Self.IMPORTADORES" Multiplicity="1" />
+          <End Role="IMPORTACIONES" Type="Self.IMPORTACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMPORTADORES">
+              <PropertyRef Name="ID_IMPORTADOR" />
+            </Principal>
+            <Dependent Role="IMPORTACIONES">
+              <PropertyRef Name="ID_IMPORTADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAC_TIENE_UNA_UBICACIO">
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="1" />
+          <End Role="IMPORTACIONES" Type="Self.IMPORTACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UBICACIONES">
+              <PropertyRef Name="ID_UBICACION" />
+            </Principal>
+            <Dependent Role="IMPORTACIONES">
+              <PropertyRef Name="ID_UBICACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIMIEN_TIENE_IMPORTAC">
+          <End Role="IMPORTACIONES" Type="Self.IMPORTACIONES" Multiplicity="1" />
+          <End Role="MOVIMIENTOS" Type="Self.MOVIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMPORTACIONES">
+              <PropertyRef Name="ID_IMPORTACION" />
+            </Principal>
+            <Dependent Role="MOVIMIENTOS">
+              <PropertyRef Name="ID_IMPORTACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIMIEN_ES_DE_TIPO_MOV">
+          <End Role="TIPO_MOVIMIENTOS" Type="Self.TIPO_MOVIMIENTOS" Multiplicity="1" />
+          <End Role="MOVIMIENTOS" Type="Self.MOVIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_MOVIMIENTOS">
+              <PropertyRef Name="ID_TMOVIMIENTO" />
+            </Principal>
+            <Dependent Role="MOVIMIENTOS">
+              <PropertyRef Name="ID_TMOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIMIEN_REMOLCADO_TIPO_REM">
+          <End Role="TIPO_REMOLQUES" Type="Self.TIPO_REMOLQUES" Multiplicity="0..1" />
+          <End Role="MOVIMIENTOS" Type="Self.MOVIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_REMOLQUES">
+              <PropertyRef Name="ID_TREMOLQUE" />
+            </Principal>
+            <Dependent Role="MOVIMIENTOS">
+              <PropertyRef Name="ID_TREMOLQUE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIMIEN_REPARADO__TALLERES">
+          <End Role="TALLERES" Type="Self.TALLERES" Multiplicity="0..1" />
+          <End Role="MOVIMIENTOS" Type="Self.MOVIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TALLERES">
+              <PropertyRef Name="ID_TALLER" />
+            </Principal>
+            <Dependent Role="MOVIMIENTOS">
+              <PropertyRef Name="ID_TALLER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOS_POSEE_ROLES">
+          <End Role="ROLES" Type="Self.ROLES" Multiplicity="1" />
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="ID_ROLES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="bad115Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="BODEGAS" EntityType="Self.BODEGAS" />
+          <EntitySet Name="ESTADO_IMPORTACIONES" EntityType="Self.ESTADO_IMPORTACIONES" />
+          <EntitySet Name="IMPORTACIONES" EntityType="Self.IMPORTACIONES" />
+          <EntitySet Name="IMPORTADORES" EntityType="Self.IMPORTADORES" />
+          <EntitySet Name="MOVIMIENTOS" EntityType="Self.MOVIMIENTOS" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLES" />
+          <EntitySet Name="TALLERES" EntityType="Self.TALLERES" />
+          <EntitySet Name="TIPO_MOVIMIENTOS" EntityType="Self.TIPO_MOVIMIENTOS" />
+          <EntitySet Name="TIPO_REMOLQUES" EntityType="Self.TIPO_REMOLQUES" />
+          <EntitySet Name="UBICACIONES" EntityType="Self.UBICACIONES" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
+          <EntitySet Name="VEHICULOS" EntityType="Self.VEHICULOS" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UBICACIO_PERTENECE_BODEGAS" Association="Self.FK_UBICACIO_PERTENECE_BODEGAS">
+            <End Role="BODEGAS" EntitySet="BODEGAS" />
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAC_ESTADO_ESTADO_I" Association="Self.FK_IMPORTAC_ESTADO_ESTADO_I">
+            <End Role="ESTADO_IMPORTACIONES" EntitySet="ESTADO_IMPORTACIONES" />
+            <End Role="IMPORTACIONES" EntitySet="IMPORTACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAC_PERTENECE_VEHICULO" Association="Self.FK_IMPORTAC_PERTENECE_VEHICULO">
+            <End Role="VEHICULOS" EntitySet="VEHICULOS" />
+            <End Role="IMPORTACIONES" EntitySet="IMPORTACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAC_REALIZA_IMPORTAD" Association="Self.FK_IMPORTAC_REALIZA_IMPORTAD">
+            <End Role="IMPORTADORES" EntitySet="IMPORTADORES" />
+            <End Role="IMPORTACIONES" EntitySet="IMPORTACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAC_TIENE_UNA_UBICACIO" Association="Self.FK_IMPORTAC_TIENE_UNA_UBICACIO">
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+            <End Role="IMPORTACIONES" EntitySet="IMPORTACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIMIEN_TIENE_IMPORTAC" Association="Self.FK_MOVIMIEN_TIENE_IMPORTAC">
+            <End Role="IMPORTACIONES" EntitySet="IMPORTACIONES" />
+            <End Role="MOVIMIENTOS" EntitySet="MOVIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIMIEN_ES_DE_TIPO_MOV" Association="Self.FK_MOVIMIEN_ES_DE_TIPO_MOV">
+            <End Role="TIPO_MOVIMIENTOS" EntitySet="TIPO_MOVIMIENTOS" />
+            <End Role="MOVIMIENTOS" EntitySet="MOVIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIMIEN_REMOLCADO_TIPO_REM" Association="Self.FK_MOVIMIEN_REMOLCADO_TIPO_REM">
+            <End Role="TIPO_REMOLQUES" EntitySet="TIPO_REMOLQUES" />
+            <End Role="MOVIMIENTOS" EntitySet="MOVIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIMIEN_REPARADO__TALLERES" Association="Self.FK_MOVIMIEN_REPARADO__TALLERES">
+            <End Role="TALLERES" EntitySet="TALLERES" />
+            <End Role="MOVIMIENTOS" EntitySet="MOVIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_POSEE_ROLES" Association="Self.FK_USUARIOS_POSEE_ROLES">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="InsertarImportador">
+            <Parameter Name="id_importador" Mode="In" Type="Int32" />
+            <Parameter Name="nit" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="apellido_casada" Mode="In" Type="String" />
+            <Parameter Name="genero" Mode="In" Type="String" />
+            <Parameter Name="fechadeNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="direccion" Mode="In" Type="String" />
+            <Parameter Name="persona_responsable" Mode="In" Type="String" />
+            <Parameter Name="telefono_responsable" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bad115ModelStoreContainer" CdmEntityContainer="bad115Entities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="bad115Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="bad115Model.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="bad115Model.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="bad115Model.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="bad115Model.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BODEGAS">
+            <EntityTypeMapping TypeName="bad115Model.BODEGAS">
+              <MappingFragment StoreEntitySet="BODEGAS">
+                <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="CAPACIDAD_MAX" ColumnName="CAPACIDAD_MAX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADO_IMPORTACIONES">
+            <EntityTypeMapping TypeName="bad115Model.ESTADO_IMPORTACIONES">
+              <MappingFragment StoreEntitySet="ESTADO_IMPORTACIONES">
+                <ScalarProperty Name="ID_EIMPORTACION" ColumnName="ID_EIMPORTACION" />
+                <ScalarProperty Name="ESTADO_IMPORTACION" ColumnName="ESTADO_IMPORTACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IMPORTACIONES">
+            <EntityTypeMapping TypeName="bad115Model.IMPORTACIONES">
+              <MappingFragment StoreEntitySet="IMPORTACIONES">
+                <ScalarProperty Name="ID_IMPORTACION" ColumnName="ID_IMPORTACION" />
+                <ScalarProperty Name="ID_UBICACION" ColumnName="ID_UBICACION" />
+                <ScalarProperty Name="ID_EIMPORTACION" ColumnName="ID_EIMPORTACION" />
+                <ScalarProperty Name="ID_IMPORTADOR" ColumnName="ID_IMPORTADOR" />
+                <ScalarProperty Name="ID_VEHICULO" ColumnName="ID_VEHICULO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="DESPERFECTO" ColumnName="DESPERFECTO" />
+                <ScalarProperty Name="PRECIO_VENTA" ColumnName="PRECIO_VENTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IMPORTADORES">
+            <EntityTypeMapping TypeName="bad115Model.IMPORTADORES">
+              <MappingFragment StoreEntitySet="IMPORTADORES">
+                <ScalarProperty Name="ID_IMPORTADOR" ColumnName="ID_IMPORTADOR" />
+                <ScalarProperty Name="NIT" ColumnName="NIT" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+                <ScalarProperty Name="APELLIDO_CASADA" ColumnName="APELLIDO_CASADA" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="PERSONA_RESPONSABLE" ColumnName="PERSONA_RESPONSABLE" />
+                <ScalarProperty Name="TELEFONO_RESPONSABLE" ColumnName="TELEFONO_RESPONSABLE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MOVIMIENTOS">
+            <EntityTypeMapping TypeName="bad115Model.MOVIMIENTOS">
+              <MappingFragment StoreEntitySet="MOVIMIENTOS">
+                <ScalarProperty Name="ID_MOVIMIENTO" ColumnName="ID_MOVIMIENTO" />
+                <ScalarProperty Name="ID_TALLER" ColumnName="ID_TALLER" />
+                <ScalarProperty Name="ID_IMPORTACION" ColumnName="ID_IMPORTACION" />
+                <ScalarProperty Name="ID_TMOVIMIENTO" ColumnName="ID_TMOVIMIENTO" />
+                <ScalarProperty Name="ID_TREMOLQUE" ColumnName="ID_TREMOLQUE" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLES">
+            <EntityTypeMapping TypeName="bad115Model.ROLES">
+              <MappingFragment StoreEntitySet="ROLES">
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="ROL" ColumnName="ROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TALLERES">
+            <EntityTypeMapping TypeName="bad115Model.TALLERES">
+              <MappingFragment StoreEntitySet="TALLERES">
+                <ScalarProperty Name="ID_TALLER" ColumnName="ID_TALLER" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_MOVIMIENTOS">
+            <EntityTypeMapping TypeName="bad115Model.TIPO_MOVIMIENTOS">
+              <MappingFragment StoreEntitySet="TIPO_MOVIMIENTOS">
+                <ScalarProperty Name="ID_TMOVIMIENTO" ColumnName="ID_TMOVIMIENTO" />
+                <ScalarProperty Name="TIPO_MOVIMIENTO" ColumnName="TIPO_MOVIMIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_REMOLQUES">
+            <EntityTypeMapping TypeName="bad115Model.TIPO_REMOLQUES">
+              <MappingFragment StoreEntitySet="TIPO_REMOLQUES">
+                <ScalarProperty Name="ID_TREMOLQUE" ColumnName="ID_TREMOLQUE" />
+                <ScalarProperty Name="TIPO_REMOLQUE" ColumnName="TIPO_REMOLQUE" />
+                <ScalarProperty Name="CAPACIDAD_REMOLQUE" ColumnName="CAPACIDAD_REMOLQUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UBICACIONES">
+            <EntityTypeMapping TypeName="bad115Model.UBICACIONES">
+              <MappingFragment StoreEntitySet="UBICACIONES">
+                <ScalarProperty Name="ID_UBICACION" ColumnName="ID_UBICACION" />
+                <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
+                <ScalarProperty Name="NIVEL" ColumnName="NIVEL" />
+                <ScalarProperty Name="NUMERO_PARQUEO" ColumnName="NUMERO_PARQUEO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="bad115Model.USUARIOS">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="ID_ROLES" ColumnName="ID_ROLES" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="NOMBRE_USER" ColumnName="NOMBRE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VEHICULOS">
+            <EntityTypeMapping TypeName="bad115Model.VEHICULOS">
+              <MappingFragment StoreEntitySet="VEHICULOS">
+                <ScalarProperty Name="ID_VEHICULO" ColumnName="ID_VEHICULO" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="MODELO" ColumnName="MODELO" />
+                <ScalarProperty Name="ANO" ColumnName="ANO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="bad115Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="InsertarImportador" FunctionName="bad115Model.Store.InsertarImportador" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
