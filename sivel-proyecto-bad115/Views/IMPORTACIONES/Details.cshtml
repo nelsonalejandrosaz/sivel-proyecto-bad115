@@ -1,0 +1,74 @@
+﻿@model sivel_proyecto_bad115.IMPORTACIONES
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>IMPORTACIONES</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESPERFECTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESPERFECTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIO_VENTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIO_VENTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO_IMPORTACIONES.ESTADO_IMPORTACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO_IMPORTACIONES.ESTADO_IMPORTACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VEHICULOS.MARCA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VEHICULOS.MARCA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMPORTADORES.NOMBRES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMPORTADORES.NOMBRES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UBICACIONES.ID_UBICACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UBICACIONES.ID_UBICACION)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_IMPORTACION }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

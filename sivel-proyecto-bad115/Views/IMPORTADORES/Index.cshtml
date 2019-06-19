@@ -1,0 +1,88 @@
+﻿@model IEnumerable<sivel_proyecto_bad115.IMPORTADORES>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo Importador", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.APELLIDOS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.APELLIDO_CASADA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GENERO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_NACIMIENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PERSONA_RESPONSABLE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TELEFONO_RESPONSABLE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRES)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APELLIDOS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APELLIDO_CASADA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GENERO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_NACIMIENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIRECCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PERSONA_RESPONSABLE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEFONO_RESPONSABLE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID_IMPORTADOR }) |
+            @Html.ActionLink("Mostrar", "Details", new { id=item.ID_IMPORTADOR }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_IMPORTADOR })
+        </td>
+    </tr>
+}
+
+</table>
