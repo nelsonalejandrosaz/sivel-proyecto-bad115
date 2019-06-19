@@ -1,0 +1,26 @@
+﻿@model sivel_proyecto_bad115.Models.TIPO_MOVIMIENTOS
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TIPO_MOVIMIENTOS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TIPO_MOVIMIENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPO_MOVIMIENTO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_TMOVIMIENTO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

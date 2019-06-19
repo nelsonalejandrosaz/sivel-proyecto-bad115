@@ -161,8 +161,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BODEGASController.cs" />
+    <Compile Include="Controllers\ESTADO_IMPORTACIONESController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TALLERESController.cs" />
+    <Compile Include="Controllers\TIPO_MOVIMIENTOSController.cs" />
+    <Compile Include="Controllers\TIPO_REMOLQUESController.cs" />
+    <Compile Include="Controllers\VEHICULOSController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -302,6 +308,36 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\TALLERES\Create.cshtml" />
+    <Content Include="Views\TALLERES\Delete.cshtml" />
+    <Content Include="Views\TALLERES\Details.cshtml" />
+    <Content Include="Views\TALLERES\Edit.cshtml" />
+    <Content Include="Views\TALLERES\Index.cshtml" />
+    <Content Include="Views\BODEGAS\Create.cshtml" />
+    <Content Include="Views\BODEGAS\Delete.cshtml" />
+    <Content Include="Views\BODEGAS\Details.cshtml" />
+    <Content Include="Views\BODEGAS\Edit.cshtml" />
+    <Content Include="Views\BODEGAS\Index.cshtml" />
+    <Content Include="Views\ESTADO_IMPORTACIONES\Create.cshtml" />
+    <Content Include="Views\ESTADO_IMPORTACIONES\Delete.cshtml" />
+    <Content Include="Views\ESTADO_IMPORTACIONES\Details.cshtml" />
+    <Content Include="Views\ESTADO_IMPORTACIONES\Edit.cshtml" />
+    <Content Include="Views\ESTADO_IMPORTACIONES\Index.cshtml" />
+    <Content Include="Views\VEHICULOS\Create.cshtml" />
+    <Content Include="Views\VEHICULOS\Delete.cshtml" />
+    <Content Include="Views\VEHICULOS\Details.cshtml" />
+    <Content Include="Views\VEHICULOS\Edit.cshtml" />
+    <Content Include="Views\VEHICULOS\Index.cshtml" />
+    <Content Include="Views\TIPO_REMOLQUES\Create.cshtml" />
+    <Content Include="Views\TIPO_REMOLQUES\Delete.cshtml" />
+    <Content Include="Views\TIPO_REMOLQUES\Details.cshtml" />
+    <Content Include="Views\TIPO_REMOLQUES\Edit.cshtml" />
+    <Content Include="Views\TIPO_REMOLQUES\Index.cshtml" />
+    <Content Include="Views\TIPO_MOVIMIENTOS\Create.cshtml" />
+    <Content Include="Views\TIPO_MOVIMIENTOS\Delete.cshtml" />
+    <Content Include="Views\TIPO_MOVIMIENTOS\Details.cshtml" />
+    <Content Include="Views\TIPO_MOVIMIENTOS\Edit.cshtml" />
+    <Content Include="Views\TIPO_MOVIMIENTOS\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

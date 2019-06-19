@@ -11,6 +11,7 @@ namespace sivel_proyecto_bad115.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class VEHICULOS
     {
@@ -20,8 +21,14 @@ namespace sivel_proyecto_bad115.Models
         }
     
         public int ID_VEHICULO { get; set; }
+        [Required]
+        [Display(Name = "Marca")]
         public string MARCA { get; set; }
+        [Required]
+        [Display(Name = "Modelo")]
         public string MODELO { get; set; }
+        [Required]
+        [Display(Name = "Año")]
         public int ANO { get; set; }
     
         public virtual ICollection<IMPORTACIONES> IMPORTACIONES { get; set; }

@@ -1,0 +1,34 @@
+﻿@model sivel_proyecto_bad115.Models.TIPO_REMOLQUES
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TIPO_REMOLQUES</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TIPO_REMOLQUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPO_REMOLQUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAPACIDAD_REMOLQUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAPACIDAD_REMOLQUE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_TREMOLQUE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

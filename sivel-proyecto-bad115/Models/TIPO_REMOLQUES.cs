@@ -11,7 +11,8 @@ namespace sivel_proyecto_bad115.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TIPO_REMOLQUES
     {
         public TIPO_REMOLQUES()
@@ -20,7 +21,11 @@ namespace sivel_proyecto_bad115.Models
         }
     
         public int ID_TREMOLQUE { get; set; }
+        [Required]
+        [Display(Name = "Tipo remolque")]
         public string TIPO_REMOLQUE { get; set; }
+        [Required]
+        [Display(Name = "Capacidad remolque")]
         public int CAPACIDAD_REMOLQUE { get; set; }
     
         public virtual ICollection<MOVIMIENTOS> MOVIMIENTOS { get; set; }
