@@ -1,0 +1,80 @@
+﻿@model sivel_proyecto_bad115.Models.IMPORTACIONES
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>IMPORTACIONES</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESPERFECTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESPERFECTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIO_VENTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIO_VENTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO_IMPORTACIONES.ESTADO_IMPORTACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO_IMPORTACIONES.ESTADO_IMPORTACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VEHICULOS.MARCA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VEHICULOS.MARCA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMPORTADORES.NOMBRES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMPORTADORES.NOMBRES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UBICACIONES.ID_UBICACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UBICACIONES.ID_UBICACION)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

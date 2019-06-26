@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using sivel_proyecto_bad115;
+using sivel_proyecto_bad115.Models;
 
-namespace sivel_proyecto_bad115.Models
+namespace sivel_proyecto_bad115.Controllers
 {
     public class IMPORTACIONESController : Controller
     {
-        private bad115Entities db = new bad115Entities();
+        private bad115Entidades db = new bad115Entidades();
 
         // GET: IMPORTACIONES
         public ActionResult Index()
@@ -47,8 +47,8 @@ namespace sivel_proyecto_bad115.Models
         }
 
         // POST: IMPORTACIONES/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID_IMPORTACION,ID_UBICACION,ID_EIMPORTACION,ID_IMPORTADOR,ID_VEHICULO,FECHA,DESPERFECTO,PRECIO_VENTA")] IMPORTACIONES iMPORTACIONES)
@@ -87,8 +87,8 @@ namespace sivel_proyecto_bad115.Models
         }
 
         // POST: IMPORTACIONES/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID_IMPORTACION,ID_UBICACION,ID_EIMPORTACION,ID_IMPORTADOR,ID_VEHICULO,FECHA,DESPERFECTO,PRECIO_VENTA")] IMPORTACIONES iMPORTACIONES)

@@ -1,0 +1,64 @@
+﻿@model sivel_proyecto_bad115.Models.MOVIMIENTOS
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MOVIMIENTOS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMPORTACIONES.DESPERFECTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMPORTACIONES.DESPERFECTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIPO_MOVIMIENTOS.TIPO_MOVIMIENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPO_MOVIMIENTOS.TIPO_MOVIMIENTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIPO_REMOLQUES.TIPO_REMOLQUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPO_REMOLQUES.TIPO_REMOLQUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TALLERES.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TALLERES.NOMBRE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

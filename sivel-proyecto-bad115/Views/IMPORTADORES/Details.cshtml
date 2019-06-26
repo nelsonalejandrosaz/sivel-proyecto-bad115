@@ -90,6 +90,47 @@
             @Html.DisplayFor(model => model.EMAIL)
         </dd>
 
+        <br /><br /><br />
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.IMPORTACIONES)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Año</th>
+                    <th>Desperfecto</th>
+                    <th>Detalle</th>
+                </tr>
+                @foreach (var item in Model.IMPORTACIONES)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FECHA)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VEHICULOS.MARCA)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VEHICULOS.MODELO)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VEHICULOS.ANO)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DESPERFECTO)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Detalle", "Details", "IMPORTACIONES", new { id = item.ID_IMPORTACION },null)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
     </dl>
 </div>
 <p>

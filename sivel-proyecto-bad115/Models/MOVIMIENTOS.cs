@@ -11,14 +11,19 @@ namespace sivel_proyecto_bad115.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class MOVIMIENTOS
     {
         public int ID_MOVIMIENTO { get; set; }
         public Nullable<int> ID_TALLER { get; set; }
+        [Required]
         public int ID_IMPORTACION { get; set; }
+        [Required]
         public int ID_TMOVIMIENTO { get; set; }
         public Nullable<int> ID_TREMOLQUE { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
         public System.DateTime FECHA { get; set; }
     
         public virtual IMPORTACIONES IMPORTACIONES { get; set; }
