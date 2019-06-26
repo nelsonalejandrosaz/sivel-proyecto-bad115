@@ -11,6 +11,7 @@ namespace sivel_proyecto_bad115.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class BODEGAS
     {
@@ -20,7 +21,12 @@ namespace sivel_proyecto_bad115.Models
         }
     
         public int ID_BODEGA { get; set; }
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "Nombre")]
         public string NOMBRE { get; set; }
+        [Required]
+        [Display(Name = "Capacidad maxima")]
         public int CAPACIDAD_MAX { get; set; }
     
         public virtual ICollection<UBICACIONES> UBICACIONES { get; set; }

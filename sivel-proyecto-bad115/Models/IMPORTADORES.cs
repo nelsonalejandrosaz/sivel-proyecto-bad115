@@ -11,6 +11,7 @@ namespace sivel_proyecto_bad115.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class IMPORTADORES
     {
@@ -20,15 +21,42 @@ namespace sivel_proyecto_bad115.Models
         }
     
         public int ID_IMPORTADOR { get; set; }
+        [Required]
         public int NIT { get; set; }
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "Nombres")]
         public string NOMBRES { get; set; }
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "Apellidos")]
         public string APELLIDOS { get; set; }
+        [MaxLength(50)]
+        [Display(Name = "Apellido de casada")]
         public string APELLIDO_CASADA { get; set; }
+        [Required]
+        [StringLength(1)]
+        [Display(Name = "Genero")]
         public string GENERO { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha nacimiento")]
         public System.DateTime FECHA_NACIMIENTO { get; set; }
+        [Required]
+        [MaxLength(280)]
+        [Display(Name = "Direccion")]
         public string DIRECCION { get; set; }
+        [Required]
+        [MaxLength(100)]
+        [Display(Name = "Persona responsable")]
         public string PERSONA_RESPONSABLE { get; set; }
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "Telefono responsable")]
         public string TELEFONO_RESPONSABLE { get; set; }
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "Email")]
         public string EMAIL { get; set; }
     
         public virtual ICollection<IMPORTACIONES> IMPORTACIONES { get; set; }

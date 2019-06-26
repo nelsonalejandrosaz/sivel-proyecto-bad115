@@ -11,6 +11,7 @@ namespace sivel_proyecto_bad115.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class TALLERES
     {
@@ -20,6 +21,9 @@ namespace sivel_proyecto_bad115.Models
         }
     
         public int ID_TALLER { get; set; }
+
+        [Required]
+        [Display(Name = "Nombre")]
         public string NOMBRE { get; set; }
     
         public virtual ICollection<MOVIMIENTOS> MOVIMIENTOS { get; set; }

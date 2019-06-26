@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿@model IEnumerable<sivel_proyecto_bad115.IMPORTADORES>
+=======
+﻿@model IEnumerable<sivel_proyecto_bad115.Models.IMPORTADORES>
+>>>>>>> nalejandrosaz
 
 @{
     ViewBag.Title = "Index";
@@ -7,9 +11,14 @@
 <h2>Index</h2>
 
 <p>
+<<<<<<< HEAD
     @Html.ActionLink("Crear nuevo Importador", "Create")
 </p>
 
+=======
+    @Html.ActionLink("Create New", "Create")
+</p>
+>>>>>>> nalejandrosaz
 <table class="table">
     <tr>
         <th>
@@ -78,9 +87,15 @@
             @Html.DisplayFor(modelItem => item.EMAIL)
         </td>
         <td>
+<<<<<<< HEAD
             @Html.ActionLink("Editar", "Edit", new { id=item.ID_IMPORTADOR }) |
             @Html.ActionLink("Mostrar", "Details", new { id=item.ID_IMPORTADOR }) |
             @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_IMPORTADOR })
+=======
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_IMPORTADOR }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_IMPORTADOR }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_IMPORTADOR })
+>>>>>>> nalejandrosaz
         </td>
     </tr>
 }

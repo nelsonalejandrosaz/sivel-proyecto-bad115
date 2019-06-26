@@ -11,6 +11,7 @@ namespace sivel_proyecto_bad115.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class TIPO_MOVIMIENTOS
     {
@@ -18,8 +19,10 @@ namespace sivel_proyecto_bad115.Models
         {
             this.MOVIMIENTOS = new HashSet<MOVIMIENTOS>();
         }
-    
+
         public int ID_TMOVIMIENTO { get; set; }
+        [Required]
+        [Display(Name = "Tipo movimiento")]
         public string TIPO_MOVIMIENTO { get; set; }
     
         public virtual ICollection<MOVIMIENTOS> MOVIMIENTOS { get; set; }
