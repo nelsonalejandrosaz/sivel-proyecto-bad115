@@ -26,69 +26,75 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Acciones</span>
-                        <a class="d-flex align-items-center text-muted" href="#">
-                            <span data-feather="plus-circle"></span>
-                        </a>
-                    </h6>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            @Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Importadores", "Index", "IMPORTADORES", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Importaciones", "Index", "IMPORTACIONES", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Movimientos", "Index", "MOVIMIENTOS", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Ubicaciones", "Index", "UBICACIONES", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="users"></span>
-                                Reparaciones
+            @if (Request.IsAuthenticated)
+            {
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <span>Acciones</span>
+                            <a class="d-flex align-items-center text-muted" href="#">
+                                <span data-feather="plus-circle"></span>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Bodegas", "Index", "BODEGAS", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Vehiculos", "Index", "VEHICULOS", null, new { @class = "nav-link" })
-                        </li>
-                    </ul>
+                        </h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                @Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Importadores", "Index", "IMPORTADORES", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Importaciones", "Index", "IMPORTACIONES", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Movimientos", "Index", "MOVIMIENTOS", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Ubicaciones", "Index", "UBICACIONES", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="users"></span>
+                                    Reparaciones
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Bodegas", "Index", "BODEGAS", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Vehiculos", "Index", "VEHICULOS", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Usuarios", "Index", "AspNetUsers", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Roles", "Index", "AspNetRoles", null, new { @class = "nav-link" })
+                            </li>
+                        </ul>
 
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Catálogos</span>
-                        <a class="d-flex align-items-center text-muted" href="#">
-                            <span data-feather="plus-circle"></span>
-                        </a>
-                    </h6>
-                    <ul class="nav flex-column mb-2">
-                        <li class="nav-item">
-                            @Html.ActionLink("Estado importaciones", "Index", "ESTADO_IMPORTACIONES", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Tipo remolques", "Index", "TIPO_REMOLQUES", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Tipo movimientos", "Index", "TIPO_MOVIMIENTOS", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Year-end sale
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <span>Catálogos</span>
+                            <a class="d-flex align-items-center text-muted" href="#">
+                                <span data-feather="plus-circle"></span>
                             </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+                        </h6>
+                        <ul class="nav flex-column mb-2">
+                            <li class="nav-item">
+                                @Html.ActionLink("Estado importaciones", "Index", "ESTADO_IMPORTACIONES", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Tipo remolques", "Index", "TIPO_REMOLQUES", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Tipo movimientos", "Index", "TIPO_MOVIMIENTOS", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Talleres", "Index", "TALLERES", null, new { @class = "nav-link" })
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            }            
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 @RenderBody()
             </main>
