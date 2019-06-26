@@ -51,6 +51,7 @@ namespace sivel_proyecto_bad115.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.BODEGAS.Add(bODEGAS);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -81,10 +82,12 @@ namespace sivel_proyecto_bad115.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID_BODEGA,NOMBRE,CAPACIDAD_MAX")] BODEGAS bODEGAS)
         {
+            
             if (ModelState.IsValid)
             {
-                db.Entry(bODEGAS).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UpdateBodega(bODEGAS.ID_BODEGA, bODEGAS.NOMBRE, bODEGAS.CAPACIDAD_MAX);
+                //db.Entry(bODEGAS).State = EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(bODEGAS);

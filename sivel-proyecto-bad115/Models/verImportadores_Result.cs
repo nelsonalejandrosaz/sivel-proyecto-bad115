@@ -10,16 +10,19 @@
 namespace sivel_proyecto_bad115.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class USUARIOS
+    public partial class verImportadores_Result
     {
-        public int ID_USUARIO { get; set; }
-        public int ID_ROLES { get; set; }
+        public int ID_IMPORTADOR { get; set; }
+        public int NIT { get; set; }
+        public string NOMBRES { get; set; }
+        public string APELLIDOS { get; set; }
+        public string APELLIDO_CASADA { get; set; }
+        public string GENERO { get; set; }
+        public System.DateTime FECHA_NACIMIENTO { get; set; }
+        public string DIRECCION { get; set; }
+        public string PERSONA_RESPONSABLE { get; set; }
+        public string TELEFONO_RESPONSABLE { get; set; }
         public string EMAIL { get; set; }
-        public string PASSWORD { get; set; }
-        public string NOMBRE_USER { get; set; }
-    
-        public virtual ROLES ROLES { get; set; }
     }
 }

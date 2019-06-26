@@ -10,18 +10,10 @@
 namespace sivel_proyecto_bad115.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class TALLERES
+    public partial class IndexTMovimientos_Result
     {
-        public TALLERES()
-        {
-            this.MOVIMIENTOS = new HashSet<MOVIMIENTOS>();
-        }
-    
-        public int ID_TALLER { get; set; }
-        public string NOMBRE { get; set; }
-    
-        public virtual ICollection<MOVIMIENTOS> MOVIMIENTOS { get; set; }
+        public int ID_TMOVIMIENTO { get; set; }
+        public string TIPO_MOVIMIENTO { get; set; }
     }
 }

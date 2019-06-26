@@ -10,18 +10,16 @@
 namespace sivel_proyecto_bad115.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class TALLERES
+    public partial class VerImportaciones_Result
     {
-        public TALLERES()
-        {
-            this.MOVIMIENTOS = new HashSet<MOVIMIENTOS>();
-        }
-    
-        public int ID_TALLER { get; set; }
-        public string NOMBRE { get; set; }
-    
-        public virtual ICollection<MOVIMIENTOS> MOVIMIENTOS { get; set; }
+        public int ID_IMPORTACION { get; set; }
+        public int ID_UBICACION { get; set; }
+        public int ID_EIMPORTACION { get; set; }
+        public int ID_IMPORTADOR { get; set; }
+        public int ID_VEHICULO { get; set; }
+        public System.DateTime FECHA { get; set; }
+        public string DESPERFECTO { get; set; }
+        public Nullable<decimal> PRECIO_VENTA { get; set; }
     }
 }
