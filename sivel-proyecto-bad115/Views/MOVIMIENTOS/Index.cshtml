@@ -1,0 +1,57 @@
+﻿@model IEnumerable<sivel_proyecto_bad115.Models.MOVIMIENTOS>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMPORTACIONES.DESPERFECTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIPO_MOVIMIENTOS.TIPO_MOVIMIENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIPO_REMOLQUES.TIPO_REMOLQUE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TALLERES.NOMBRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMPORTACIONES.DESPERFECTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIPO_MOVIMIENTOS.TIPO_MOVIMIENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIPO_REMOLQUES.TIPO_REMOLQUE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TALLERES.NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_MOVIMIENTO }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_MOVIMIENTO }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_MOVIMIENTO })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿@model sivel_proyecto_bad115.IMPORTACIONES
+=======
+﻿@model sivel_proyecto_bad115.Models.IMPORTACIONES
+>>>>>>> nalejandrosaz
 
 @{
     ViewBag.Title = "Details";
@@ -59,11 +63,22 @@
         </dd>
 
         <dt>
+<<<<<<< HEAD
             @Html.DisplayNameFor(model => model.UBICACIONES.ID_UBICACION)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.UBICACIONES.ID_UBICACION)
+=======
+            Ubicacion del vehiculo
+        </dt>
+
+        <dd>
+            <p>Bodega: @Html.DisplayFor(model => model.UBICACIONES.BODEGAS.NOMBRE)</p>
+            <p>Nivel: @Html.DisplayFor(model => model.UBICACIONES.NIVEL)</p>
+            <p>No parqueo: @Html.DisplayFor(model => model.UBICACIONES.NUMERO_PARQUEO)</p>
+            
+>>>>>>> nalejandrosaz
         </dd>
 
     </dl>

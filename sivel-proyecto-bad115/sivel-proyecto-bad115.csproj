@@ -167,11 +167,14 @@
     <Compile Include="Controllers\BODEGASController.cs" />
     <Compile Include="Controllers\ESTADO_IMPORTACIONESController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IMPORTACIONESController.cs" />
     <Compile Include="Controllers\IMPORTADORESController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MOVIMIENTOSController.cs" />
     <Compile Include="Controllers\TALLERESController.cs" />
     <Compile Include="Controllers\TIPO_MOVIMIENTOSController.cs" />
     <Compile Include="Controllers\TIPO_REMOLQUESController.cs" />
+    <Compile Include="Controllers\UBICACIONESController.cs" />
     <Compile Include="Controllers\VEHICULOSController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -439,6 +442,21 @@
     <Content Include="Views\IMPORTADORES\Details.cshtml" />
     <Content Include="Views\IMPORTADORES\Edit.cshtml" />
     <Content Include="Views\IMPORTADORES\Index.cshtml" />
+    <Content Include="Views\IMPORTACIONES\Create.cshtml" />
+    <Content Include="Views\IMPORTACIONES\Delete.cshtml" />
+    <Content Include="Views\IMPORTACIONES\Details.cshtml" />
+    <Content Include="Views\IMPORTACIONES\Edit.cshtml" />
+    <Content Include="Views\IMPORTACIONES\Index.cshtml" />
+    <Content Include="Views\UBICACIONES\Create.cshtml" />
+    <Content Include="Views\UBICACIONES\Delete.cshtml" />
+    <Content Include="Views\UBICACIONES\Details.cshtml" />
+    <Content Include="Views\UBICACIONES\Edit.cshtml" />
+    <Content Include="Views\UBICACIONES\Index.cshtml" />
+    <Content Include="Views\MOVIMIENTOS\Create.cshtml" />
+    <Content Include="Views\MOVIMIENTOS\Delete.cshtml" />
+    <Content Include="Views\MOVIMIENTOS\Details.cshtml" />
+    <Content Include="Views\MOVIMIENTOS\Edit.cshtml" />
+    <Content Include="Views\MOVIMIENTOS\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<sivel_proyecto_bad115.Models.UBICACIONES>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NIVEL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NUMERO_PARQUEO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BODEGAS.NOMBRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIVEL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NUMERO_PARQUEO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BODEGAS.NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_UBICACION }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_UBICACION }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_UBICACION })
+        </td>
+    </tr>
+}
+
+</table>
