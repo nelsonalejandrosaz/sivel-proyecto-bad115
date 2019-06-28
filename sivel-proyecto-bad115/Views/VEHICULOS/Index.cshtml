@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<sivel_proyecto_bad115.Models.VEHICULOS>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Inventario de vehiculos";
 }
 
-<h2>Index</h2>
+<h2>VEHICULOS</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Un nuevo Vehiculo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.ANO)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_VEHICULO }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_VEHICULO }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_VEHICULO })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID_VEHICULO }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.ID_VEHICULO }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_VEHICULO })
         </td>
     </tr>
 }

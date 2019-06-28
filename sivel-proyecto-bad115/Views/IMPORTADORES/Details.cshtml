@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
     <h4>IMPORTADORES</h4>
@@ -124,7 +124,7 @@
                             @Html.DisplayFor(modelItem => item.DESPERFECTO)
                         </td>
                         <td>
-                            @Html.ActionLink("Detalle", "Details", "IMPORTACIONES", new { id = item.ID_IMPORTACION },null)
+                            @Html.ActionLink("Detalles", "Details", "IMPORTACIONES", new { id = item.ID_IMPORTACION },null)
                         </td>
                     </tr>
                 }
@@ -134,6 +134,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_IMPORTADOR }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID_IMPORTADOR }) |
+    @Html.ActionLink("Regresar a la lista de Importadores", "Index")
 </p>

@@ -18,6 +18,7 @@ namespace sivel_proyecto_bad115.Controllers
         public ActionResult Index()
         {
             return View(db.VEHICULOS.ToList());
+
         }
 
         // GET: VEHICULOS/Details/5
@@ -28,6 +29,7 @@ namespace sivel_proyecto_bad115.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             VEHICULOS vEHICULOS = db.VEHICULOS.Find(id);
+
             if (vEHICULOS == null)
             {
                 return HttpNotFound();
@@ -50,8 +52,9 @@ namespace sivel_proyecto_bad115.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.VEHICULOS.Add(vEHICULOS);
-                db.SaveChanges();
+                db.InsertarVehiculo(vEHICULOS.MARCA,vEHICULOS.MODELO,vEHICULOS.ANO);
+                //db.VEHICULOS.Add(vEHICULOS);
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -66,6 +69,7 @@ namespace sivel_proyecto_bad115.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             VEHICULOS vEHICULOS = db.VEHICULOS.Find(id);
+            
             if (vEHICULOS == null)
             {
                 return HttpNotFound();
@@ -82,8 +86,9 @@ namespace sivel_proyecto_bad115.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(vEHICULOS).State = EntityState.Modified;
-                db.SaveChanges();
+                db.ActualizarVehiculos(vEHICULOS.ID_VEHICULO,vEHICULOS.MARCA,vEHICULOS.MODELO,vEHICULOS.ANO);
+                //db.Entry(vEHICULOS).State = EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(vEHICULOS);
@@ -110,8 +115,9 @@ namespace sivel_proyecto_bad115.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             VEHICULOS vEHICULOS = db.VEHICULOS.Find(id);
-            db.VEHICULOS.Remove(vEHICULOS);
-            db.SaveChanges();
+            db.EliminarVehiculos(id);
+            //db.VEHICULOS.Remove(vEHICULOS);
+            //db.SaveChanges();
             return RedirectToAction("Index");
         }
 

@@ -50,6 +50,7 @@ namespace sivel_proyecto_bad115.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.ESTADO_IMPORTACIONES.Add(eSTADO_IMPORTACIONES);
                 db.SaveChanges();
                 return RedirectToAction("Index");

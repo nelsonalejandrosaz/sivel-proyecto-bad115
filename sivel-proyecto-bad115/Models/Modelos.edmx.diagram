@@ -35,6 +35,9 @@
         <EntityTypeShape EntityType="bad115Model.AspNetUserLogins" Width="1.5" PointX="14.25" PointY="8.375" />
         <AssociationConnector Association="bad115Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="bad115Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <EntityTypeShape EntityType="bad115Model.BITACORAtr" Width="1.5" PointX="7.375" PointY="9.75" />
+        <AssociationConnector Association="bad115Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="bad115Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
